@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    Hola!
+  <header id="header" class="header">
+    <section id="main-menu" class="main-menu">
+      <i class='bx bx-menu main-menu__open'></i>
+      <i class='bx bx-x main-menu__close hidden'></i>
+    </section>
+    <section class="filter-container">
+      <label for="filter"><i class='bx bx-search' ></i></label>
+      <input type="text" id="filter" class="filter" placeholder="Search">
+    </section>
+  </header>
+
+  <nav id="nav" class="nav">
+    <ul id="nav-list" class="nav-list">
+      <li id="task" class="nav-list__item">Task</li>
+      <li id="important" class="nav-list__item">Important</li>
+      <li id="completed" class="nav-list__item">Completed</li>
+    </ul>
+    <button id="add" class="nav-list__item nav-list__item-add"><i class='bx bx-message-square-add' ></i></button>
+  </nav>
+
+  <main>
+    <section id="display-task"></section>
+    <section id="display-modal"></section>
+  </main>
+
 </body>
 </html>

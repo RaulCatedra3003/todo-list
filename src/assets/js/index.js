@@ -1,8 +1,15 @@
 import "../css/styles.css";
 
 
-const hamburguerButton = document.getElementById('main-menu__open');
-const closeButton = document.getElementById('main-menu__close');
+import {showResponsiveMenu} from "./responsive-menu/responsive-menu.js"
+
+
+const hamburguerButton = document.getElementById('menuOpen');
+
+
+hamburguerButton.addEventListener("click", showResponsiveMenu);
+
+
 
 
 

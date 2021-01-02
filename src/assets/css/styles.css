@@ -1,3 +1,4 @@
+/* Principal styles */
 body{
   margin: 0;
   padding: 0;
@@ -29,13 +30,14 @@ body{
   position: relative;
   margin-top: 6px;
 }
-
 .nav{
   position: absolute;
   width: auto;
   height: 100%;
   background-color: #fafafa;
   padding: 5px 20px;
+  left: -100%;
+  transition: all .5s;
 }
 .nav-list{
   display: flex;
@@ -50,13 +52,11 @@ body{
   background-color: #fafafa;
   border: none;
 }
-
 .bx-message-square-add{
   background-color: transparent;
   border: none;
   width: 80%;
 }
-
 .new--task {
   position: fixed;
   bottom: 20px;
@@ -67,34 +67,66 @@ body{
   background-color: #fafafa;
   border: 2px solid #db4c3f;
 }
+.main{
+  min-height: 100%;
+}
 .bxs-add-to-queue {
   font-size: 20px;
 }
 
+/* Modal styles */
 
+.container-display-modal{
+  background-color: rgba(184, 184, 184, 0.7);
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	height: 100%;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+.display-modal{
+  background-color: #494949;
+	width: fit-content;
+  padding-bottom: 10px;
+  position: relative;
+  padding-top: 40px;
+}
+.display-modal__button{
+  width: 44px;
+  height: 44px;
+  position: absolute;
+	right: -12px;
+  cursor: pointer;
+  top: -10px;
+  background-color: transparent;
+  border: none;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Show and hidde styles */
 
 .seleccted {
   background-color: #db4c3f6c;
   border-radius: 5px;
   border: 2px solid #db4c3f;
 }
-.hidden{
-    display: none;
-}
 .show {
   left: 0;
+}
+.hidde{
+  display: none;
+}
+
+/* Mediaquery styles */
+
+@media screen and (min-width: 780px) {
+  .nav{
+    left: 0;
+  }
+  .main-menu{
+    display: none;
+  }
 }

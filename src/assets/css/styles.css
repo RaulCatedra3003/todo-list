@@ -13,8 +13,8 @@ body{
 }
 .main-menu{
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 2px;
+  left: 2px;
 }
 .filter-container{
   display: flex;
@@ -35,8 +35,10 @@ body{
   padding: 0;
 }
 .nav-list__item{
-  margin: 5px;
+  margin: 2px;
   color: black;
+  padding: 3px;
+  min-width: 44px;
 }
 
 .nav-list__item-add{
@@ -45,6 +47,19 @@ body{
   width: 80%;
 }
 
+.new--task {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #fafafa;
+  border: 2px solid #db4c3f;
+}
+.bxs-add-to-queue {
+  font-size: 20px;
+}
 
 
 
@@ -62,8 +77,11 @@ body{
 
 
 
-
-
+.seleccted {
+  background-color: #db4c3f6c;
+  border-radius: 5px;
+  border: 2px solid #db4c3f;
+}
 .hidden{
     display: none;
 }

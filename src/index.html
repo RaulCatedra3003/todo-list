@@ -9,7 +9,7 @@
 <body>
   <header id="header" class="header">
     <section id="main-menu" class="main-menu">
-      <i class='bx bx-menu main-menu__open'></i>
+      <i class='bx bx-menu main-menu__open' id='main-menu__open'></i>
       <i class='bx bx-x main-menu__close hidden'></i>
     </section>
     <section class="filter-container">
@@ -20,7 +20,7 @@
 
   <nav id="nav" class="nav">
     <ul id="nav-list" class="nav-list">
-      <li id="task" class="nav-list__item">Task</li>
+      <li id="task" class="nav-list__item seleccted">Task</li>
       <li id="important" class="nav-list__item">Important</li>
       <li id="completed" class="nav-list__item">Completed</li>
     </ul>
@@ -29,6 +29,7 @@
 
   <main>
     <section id="display-task"></section>
+    <button id="new--task" class="new--task"><i class='bx bxs-add-to-queue' ></i></i></button>
     <section id="display-modal"></section>
   </main>
 

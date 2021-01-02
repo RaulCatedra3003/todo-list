@@ -9,22 +9,22 @@
 <body>
   <header id="header" class="header">
     <section id="main-menu" class="main-menu">
-      <i class='bx bx-menu main-menu__open' id='main-menu__open'></i>
-      <i class='bx bx-x main-menu__close hidden'></i>
+      <button class="main-menu__open"><i class='bx bx-menu' id='main-menu__open'></i></button>
+      <button class="main-menu__close hidden"><i class='bx bx-x' id='main-menu__close'></i></button>
     </section>
     <section class="filter-container">
-      <label for="filter"><i class='bx bx-search' ></i></label>
+      <label for="filter" class='filter-icon'><i class='bx bx-search' ></i></label>
       <input type="text" id="filter" class="filter" placeholder="Search">
     </section>
   </header>
 
   <nav id="nav" class="nav">
-    <ul id="nav-list" class="nav-list">
-      <li id="task" class="nav-list__item seleccted">Task</li>
-      <li id="important" class="nav-list__item">Important</li>
-      <li id="completed" class="nav-list__item">Completed</li>
-    </ul>
-    <button id="add" class="nav-list__item nav-list__item-add"><i class='bx bx-message-square-add' ></i></button>
+    <section id="nav-list" class="nav-list">
+      <button class="nav-list__button seleccted     " id="task">Task</button>
+      <button class="nav-list__button" id="important">Important</button>
+      <button class="nav-list__button" id="completed">Completed</button>
+      <button class="nav-list__button" id="add"><i class='bx bx-message-square-add' ></i></button>
+    </section>
   </nav>
 
   <main>

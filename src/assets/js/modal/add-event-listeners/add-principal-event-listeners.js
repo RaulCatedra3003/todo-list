@@ -3,7 +3,7 @@ export {addPrincipalEventListeners}
 import {showResponsiveMenu} from '../../responsive-menu/responsive-menu.js';
 import {showModal} from '../show-modal.js';
 import {filterByCustomList} from '../../lists/filters.js';
-import {changeCompletedProperty, changeImportantProperty} from '../../tasks/tasks.js';
+import {changeCompletedOrImportantProperty} from '../../tasks/tasks.js';
 
 
 function addPrincipalEventListeners() {
@@ -20,9 +20,9 @@ function addPrincipalEventListeners() {
     e.addEventListener('click', filterByCustomList);
   })
   taskButtonsCompleted.forEach(e => {
-    e.addEventListener("click", changeCompletedProperty);
+    e.addEventListener("click", changeCompletedOrImportantProperty);
   })
   taskButtonsImportant.forEach(e => {
-    e.addEventListener('click', changeImportantProperty);
+    e.addEventListener('click', changeCompletedOrImportantProperty);
   })
 }

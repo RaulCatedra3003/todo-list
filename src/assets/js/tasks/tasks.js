@@ -1,4 +1,4 @@
-export{saveNewTask, taskArray, changeValueVariableTasks, updateTaskList, changeCompletedProperty, changeImportantProperty}
+export{saveNewTask, taskArray, changeValueVariableTasks, updateTaskList, changeCompletedOrImportantProperty}
 
 
 
@@ -88,43 +88,42 @@ function addTaskEventListeners() {
   const taskButtonsCompleted = document.querySelectorAll(".task-item__button-completed");
   const taskButtonsImportant = document.querySelectorAll(".task-item__button-important");
   taskButtonsCompleted.forEach(e => {
-    e.addEventListener("click", changeCompletedProperty);
+    e.addEventListener("click", changeCompletedOrImportantProperty);
   })
   taskButtonsImportant.forEach(e => {
-    e.addEventListener('click', changeImportantProperty);
+    e.addEventListener('click', changeCompletedOrImportantProperty);
   })
 }
 
-function changeCompletedProperty(e) {
-  let taskToChangeCompleted = e.target.id.split("--");
-  taskToChangeCompleted = taskToChangeCompleted[1];
-  taskArray.forEach(e => {
-    if(e.title === taskToChangeCompleted) {
-      if(e.completed === true) {
-        e.completed = false;
-      } else {
-        e.completed = true;
+function changeCompletedOrImportantProperty(e) {
+  let taskToChange = e.target.id.split("--");
+  if(taskToChange[0] === "completeButton"){
+    const taskToChangeCompleted= taskToChange[1];
+    taskArray.forEach(e => {
+      if(e.title === taskToChangeCompleted) {
+        if(e.completed) {
+          e.completed = false;
+        } else {
+          e.completed = true;
+        }
       }
-    }
-  })
-  updateLocalStorage();
-  updateTaskList();
-}
-function changeImportantProperty(e) {
-  let taskToChangeImportant = e.target.id.split("--");
-  taskToChangeImportant = taskToChangeImportant[1];
-  taskArray.forEach(e => {
+    })
+  }else if(taskToChange[0] === "importantButton"){
+    const taskToChangeImportant = taskToChange[1];
+    taskArray.forEach(e => {
     if(e.title === taskToChangeImportant) {
-      if(e.important === true) {
+      if(e.important) {
         e.important = false;
       } else {
         e.important = true;
       }
     }
   })
+  }
   updateLocalStorage();
-  updateTaskList();
+  updateTaskList(document.querySelector(".selected").id);
 }
+
 
 class Task {
   constructor(title, description, completed, important, list, color) {

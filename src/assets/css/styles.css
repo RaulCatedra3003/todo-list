@@ -132,6 +132,7 @@ body{
 .task-item__title{
   text-align: left;
   width: 70%;
+  border-radius: 5px;
 }
 
 /* Modal styles */

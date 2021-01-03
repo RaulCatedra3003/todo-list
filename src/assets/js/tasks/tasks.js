@@ -34,5 +34,6 @@ class Task{
     this.important=important,
     this.list=list,
     this.color=color
+    //todo metodo más pintar
   }
 }

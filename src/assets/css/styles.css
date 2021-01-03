@@ -163,8 +163,15 @@ body{
 @media screen and (min-width: 780px) {
   .nav{
     left: 0;
+    position: relative;
+    float: left;
+    min-height: 100vh;
   }
   .main-menu{
     display: none;
+  }
+  .main{
+    position: relative;
+    float: left;
   }
 }

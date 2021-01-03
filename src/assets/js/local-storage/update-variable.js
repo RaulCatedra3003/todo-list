@@ -12,10 +12,10 @@ function updateVariableFromLocalStorage() {
   } else {
     changeValueVariableCustomListArray(JSON.parse(localStorage.getItem('customLists')));
   }
-  if(localStorage.getItem('task') === null) {
+  if(localStorage.getItem('tasks') === null) {
     let objectString = JSON.stringify(taskArray);
-    localStorage.setItem('task', objectString);
+    localStorage.setItem('tasks', objectString);
 } else {
-  changeValueVariableTasks(JSON.parse(localStorage.getItem('task')));
+  changeValueVariableTasks(JSON.parse(localStorage.getItem('tasks')));
 }
 }

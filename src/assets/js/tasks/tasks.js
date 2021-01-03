@@ -89,9 +89,9 @@ function updateTaskList(listName = "Task") {
   function showTask(task) {
     displayTask.innerHTML +=  `
     <section class="task-item" id="${task.title}">
-      <input type="checkbox" class="task-item__button task-item__button-completed" id="completeButton--${task.title}">
+      <input type="checkbox" class="task-item__button task-item__button-completed" id="completeButton--${task.title}" data-id="${task.id}">
       <p class="task-item__title ${task.color}" id="detailsTask" data-id="${task.id}">${task.title}</p>
-      <button class="task-item__button task-item__button-important bx bxs-flag-alt" id="importantButton--${task.title}"></button>
+      <button class="task-item__button task-item__button-important bx bxs-flag-alt" id="importantButton--${task.title}" data-id="${task.id}"></button>
     </section>`;
     const elementToChangeCheked = document.getElementById(`completeButton--${task.title}`);
     const elementToChangeImportant = document.getElementById(`importantButton--${task.title}`)
@@ -125,10 +125,10 @@ function addTaskEventListeners() {
 
 function changeCompletedOrImportantProperty(e) {
   let taskToChange = e.target.id.split("--");
+  const taskToChangeId = e.target.dataset.id;
   if (taskToChange[0] === "completeButton") {
-    const taskToChangeCompleted = taskToChange[1];
     taskArray.forEach(e => {
-      if (e.title === taskToChangeCompleted) {
+      if (e.id === parseInt(taskToChangeId)) {
         if (e.completed) {
           e.completed = false;
         } else {
@@ -137,9 +137,8 @@ function changeCompletedOrImportantProperty(e) {
       }
     })
   } else if (taskToChange[0] === "importantButton") {
-    const taskToChangeImportant = taskToChange[1];
     taskArray.forEach(e => {
-      if (e.title === taskToChangeImportant) {
+      if (e.id === parseInt(taskToChangeId)) {
         if (e.important) {
           e.important = false;
         } else {

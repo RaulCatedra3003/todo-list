@@ -7,7 +7,6 @@ import {updateTaskList} from '../tasks/tasks.js';
 function filterByCustomList(e) {
   e.preventDefault();
   const navListButtons = document.querySelectorAll('.nav-list__button');
-  console.log(navListButtons);
   navListButtons.forEach(f => {
     f.classList.remove('selected');
   })

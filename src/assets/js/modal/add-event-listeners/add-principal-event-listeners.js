@@ -14,6 +14,7 @@ function addPrincipalEventListeners() {
   const taskButtonsCompleted = document.querySelectorAll(".task-item__button-completed");
   const taskButtonsImportant = document.querySelectorAll(".task-item__button-important");
   const taskItemTitle= document.querySelectorAll(".task-item__title");
+  const listContentButton= document.querySelectorAll(".lists-content__button");
   hamburguerButton.addEventListener("click", showResponsiveMenu);
   newTask.addEventListener('click', showModal);
   newList.addEventListener('click', showModal);
@@ -29,4 +30,5 @@ function addPrincipalEventListeners() {
   taskItemTitle.forEach(e => {
     e.addEventListener('click', showModal);
   })
+  listContentButton.forEach(listItem=>{listItem.addEventListener("dblclick",showModal)})
 }

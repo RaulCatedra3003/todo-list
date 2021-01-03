@@ -10,6 +10,7 @@ import { openTaskDetailsModal } from './content/open-task-details-modal.js';
 function showModal(e) {
   const modal = document.getElementById('displayModal');
   const id = e.target.id;
+  console.log(id)
   switch (id) {
     case 'newTask':
       removePrincipalEventListeners();
@@ -33,6 +34,11 @@ function showModal(e) {
       updateCurrentOpenModal(id);
       break;
     default:
+      removePrincipalEventListeners();
+      modal.classList.toggle("hidde");
+      addModalEventListeners();
+      openListDetailsModal(e.target);
+      updateCurrentOpenModal("listDetails");
       break;
   }
 }

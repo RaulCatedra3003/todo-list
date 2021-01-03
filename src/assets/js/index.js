@@ -29,3 +29,10 @@ newList.addEventListener('click', showModal);
 navListButtons.forEach(e => {
   e.addEventListener('click', filterByCustomList);
 })
+
+
+
+
+//todo tareas para mañana ser buen niño que se acercan los reyes. Aparte, hacer todo el tema de update and remove list todo esta en el open-list-details
+
+//todo empezar con el search y listo.

@@ -13,6 +13,7 @@ import {
 import {
   hidde
 } from '../modal/hide-modal';
+import { showModal } from '../modal/show-modal.js';
 import { addTaskEventListeners, showTask, taskArray } from '../tasks/tasks.js';
 
 
@@ -23,8 +24,10 @@ function updateCustomLists() {
   const customListsContent = document.getElementById('customLinstsContent');
   customListsContent.innerHTML = "";
   customListsArray.forEach(e => {
-    customListsContent.innerHTML += e.html
+    customListsContent.innerHTML += `<button class="lists-content__button nav-list__button" id="${e.title}" data-id="${e.id}">${e.title}</button>`
   });
+  const listContentButton= document.querySelectorAll(".lists-content__button");
+  listContentButton.forEach(listItem=>{listItem.addEventListener("dblclick",showModal)})
 }
 
 function saveNewList(e) {
@@ -90,7 +93,6 @@ function changeValueVariableCustomListArray(value) {
 class List {
   constructor(title, id) {
     this.title = title,
-    this.id = id,
-    this.html= `<button class="lists-content__button nav-list__button" id="${this.title}" data-id="${this.id}">${this.title}</button>`
+    this.id = id
   }
 }

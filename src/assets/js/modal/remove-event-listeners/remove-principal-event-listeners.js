@@ -14,6 +14,7 @@ function removePrincipalEventListeners() {
   const taskButtonsCompleted = document.querySelectorAll(".task-item__button-completed");
   const taskButtonsImportant = document.querySelectorAll(".task-item__button-important");
   const taskItemTitle= document.querySelectorAll(".task-item__title");
+  const listContentButton= document.querySelectorAll(".lists-content__button");
   hamburguerButton.removeEventListener("click", showResponsiveMenu);
   newTask.removeEventListener('click', showModal);
   newList.removeEventListener('click', showModal);
@@ -29,4 +30,5 @@ function removePrincipalEventListeners() {
   taskItemTitle.forEach(e => {
     e.removeEventListener('click', showModal);
   })
+  listContentButton.forEach(listItem=>{listItem.removeEventListener("dblclick",showModal)})
 }

@@ -30,12 +30,19 @@ function removeModalEventListeners(openModal) {
       cancelButton.removeEventListener("click", hiddeNewTaskModal);
       saveButton.removeEventListener('click', saveNewTask);
     }
-  } else if(openModal === "newList") {
+  } else if(openModal === "newList" || openModal==="listDetails") {
     const listTitle = document.getElementById('listTitle');
     const saveButton = document.getElementById('saveButton');
     const cancelButton = document.getElementById('cancelButton');
     listTitle.removeEventListener('blur', validateListTitle);
-    saveButton.removeEventListener('click', saveNewList);
-    cancelButton.removeEventListener('click', hiddeNewlistModal);
+    if(openModal==="listDetails"){
+      const deleteButton = document.getElementById('deleteButton');
+      saveButton.removeEventListener('click', updateList);//todo
+      cancelButton.removeEventListener('click', hiddeListDetailsModal);//todo
+      deleteButton.removeEventListener('click', deleteList);//todo
+    }else if(openModal==="newList"){
+      saveButton.removeEventListener('click', saveNewList);
+      cancelButton.removeEventListener('click', hiddeNewlistModal);
+    }
   }
 }

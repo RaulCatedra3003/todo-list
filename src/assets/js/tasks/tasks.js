@@ -44,7 +44,7 @@ function updateTaskList(listName = "Task") {
       break;
     case 'Important':
       taskArray.forEach(e => {
-        if(e.important) {
+        if(e.important && !e.completed) {
           showTask(e);
         }
       })

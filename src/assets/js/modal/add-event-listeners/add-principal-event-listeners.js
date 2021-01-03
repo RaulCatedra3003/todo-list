@@ -13,6 +13,7 @@ function addPrincipalEventListeners() {
   const navListButtons = document.querySelectorAll('.nav-list__button');
   const taskButtonsCompleted = document.querySelectorAll(".task-item__button-completed");
   const taskButtonsImportant = document.querySelectorAll(".task-item__button-important");
+  const taskItemTitle= document.querySelectorAll(".task-item__title");
   hamburguerButton.addEventListener("click", showResponsiveMenu);
   newTask.addEventListener('click', showModal);
   newList.addEventListener('click', showModal);
@@ -24,5 +25,8 @@ function addPrincipalEventListeners() {
   })
   taskButtonsImportant.forEach(e => {
     e.addEventListener('click', changeCompletedOrImportantProperty);
+  })
+  taskItemTitle.forEach(e => {
+    e.addEventListener('click', showModal);
   })
 }

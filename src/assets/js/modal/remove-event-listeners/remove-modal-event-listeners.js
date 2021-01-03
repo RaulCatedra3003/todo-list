@@ -14,15 +14,22 @@ function removeModalEventListeners(openModal) {
   closeModalButton.removeEventListener("click", hiddeModal);
   window.removeEventListener("keydown", hiddeModal);
   modal.removeEventListener("click", hiddeModal);
-  if(openModal === "newTask") {
+  if(openModal === "newTask" || openModal === "taskDetails") {
     const taskTitle = document.getElementById('taskTitle');
     const taskDescription = document.getElementById('taskDescription');
     const cancelButton = document.getElementById('cancelButton');
     const saveButton = document.getElementById('saveButton');
     taskTitle.removeEventListener('blur', validateTaskTitle);
     taskDescription.removeEventListener('blur', validateTaskDescription);
-    cancelButton.removeEventListener("click", hiddeNewTaskModal);
-    saveButton.removeEventListener('click', saveNewTask);
+    if(openModal === "taskDetails"){
+      const deleteButton = document.getElementById('deleteButton');
+      cancelButton.removeEventListener("click", hiddeTaskDetailsModal);
+      saveButton.removeEventListener('click', updateTask);
+      deleteButton.removeEventListener('click', deleteTask);
+    }else if(openModal === "newTask"){
+      cancelButton.removeEventListener("click", hiddeNewTaskModal);
+      saveButton.removeEventListener('click', saveNewTask);
+    }
   } else if(openModal === "newList") {
     const listTitle = document.getElementById('listTitle');
     const saveButton = document.getElementById('saveButton');

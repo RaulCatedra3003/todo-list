@@ -1,28 +1,27 @@
 export {
-  addNewTaskModalContent
+  openTaskDetailsModal
 }
 
 
-
 import {
-  hiddeNewTaskModal
-} from '../hide-modal.js';
+  customListsArray
+} from "../../lists/list";
+import {
+  deleteTask,
+  taskArray,
+  updateTask
+} from "../../tasks/tasks";
+import {
+  hiddeTaskDetailsModal
+} from "../hide-modal"
 import {
   validateTaskDescription,
   validateTaskTitle
-} from './validations/new-task-validations.js';
-import {
-  customListsArray
-} from '../../lists/list.js';
-import {
-  saveNewTask
-} from '../../tasks/tasks.js';
+} from "./validations/new-task-validations";
 
-
-
-const newTaskFomr = `
-<h2 class="modal-title">New task</h2>
-<form class='task-form'>
+const taskDetailForm = `
+  <h2 class="modal-title">Task details:</h2>
+  <form class='task-form'>
   <label for="taskTitle" class='task-form__label task-form__item'>Title*:</label>
   <input type="text" name="taskTitle" id="taskTitle" class="task-form__input task-form__item">
   <label for="taskDescription" class='task-form__label task-form__item'>Description*:</label>
@@ -50,25 +49,45 @@ const newTaskFomr = `
   </select>
   <fieldset class="fieldset-buttons task-form__item">
     <button class="fieldset-buttons__button" id="cancelButton">Cancel</button>
-    <button class="fieldset-buttons__button" id="saveButton" disabled>Save</button>
+    <button class="fieldset-buttons__button" id="deleteButton">Delete</button>
+    <button class="fieldset-buttons__button" id="saveButton">Save</button>
   </fieldset>
 </form>`
 
-
-function addNewTaskModalContent() {
+function openTaskDetailsModal(e) {
   const modalContent = document.getElementById("modalContent");
   modalContent.innerHTML = '';
-  modalContent.innerHTML = newTaskFomr;
+  modalContent.innerHTML = taskDetailForm;
+  const taskTitle = document.getElementById('taskTitle');
+  const taskDescription = document.getElementById('taskDescription');
   const selectedList = document.getElementById('selectedList');
+  const isCompleted = document.getElementById('isCompleted');
+  const isImportant = document.getElementById('isImportant');
+  let taskObject = taskArray.filter(task => task.id === parseInt(e.dataset.id))[0];
+  taskTitle.value = taskObject.title;
+  taskTitle.dataset.id = taskObject.id;
+  taskDescription.value = taskObject.description;
+  isCompleted.checked = taskObject.completed;
+  isImportant.checked = taskObject.important;
   customListsArray.forEach(value => {
     selectedList.innerHTML += `<option value="${value.title}" class="selectedList__option">${value.title}</option>`
   })
-  const taskTitle = document.getElementById('taskTitle');
-  const taskDescription = document.getElementById('taskDescription');
+  document.querySelectorAll(".selectedList__option").forEach(option => {
+    if (option.value === taskObject.list) {
+      option.selected = "true";
+    }
+  })
+  document.querySelectorAll(".taskColor__option").forEach(option => {
+    if (option.value === taskObject.color) {
+      option.selected = "true";
+    }
+  })
   const cancelButton = document.getElementById('cancelButton');
   const saveButton = document.getElementById('saveButton');
+  const deleteButton = document.getElementById('deleteButton');
   taskTitle.addEventListener('blur', validateTaskTitle);
   taskDescription.addEventListener('blur', validateTaskDescription);
-  cancelButton.addEventListener("click", hiddeNewTaskModal);
-  saveButton.addEventListener('click', saveNewTask);
+  cancelButton.addEventListener("click", hiddeTaskDetailsModal);
+  saveButton.addEventListener('click', updateTask);
+  deleteButton.addEventListener('click', deleteTask);
 }

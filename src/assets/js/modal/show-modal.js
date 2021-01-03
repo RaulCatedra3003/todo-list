@@ -5,6 +5,7 @@ import {addModalEventListeners} from './add-event-listeners/add-modal-event-list
 import {addNewTaskModalContent} from './content/new-task-content.js';
 import {addNewListModalContent} from './content/new-list-content.js';
 import {updateCurrentOpenModal} from './hide-modal.js';
+import { openTaskDetailsModal } from './content/open-task-details-modal.js';
 
 function showModal(e) {
   const modal = document.getElementById('displayModal');
@@ -22,6 +23,13 @@ function showModal(e) {
       modal.classList.toggle("hidde");
       addModalEventListeners();
       addNewListModalContent();
+      updateCurrentOpenModal(id);
+      break;
+    case 'detailsTask':
+      removePrincipalEventListeners();
+      modal.classList.toggle("hidde");
+      addModalEventListeners();
+      openTaskDetailsModal(e.target);
       updateCurrentOpenModal(id);
       break;
     default:

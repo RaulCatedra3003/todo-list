@@ -1,4 +1,4 @@
-export {hiddeModal, hiddeNewTaskModal, hidde, updateCurrentOpenModal, hiddeNewlistModal};
+export {hiddeModal, hiddeNewTaskModal, hidde, updateCurrentOpenModal, hiddeNewlistModal, hiddeTaskDetailsModal};
 
 
 import {removeModalEventListeners} from './remove-event-listeners/remove-modal-event-listeners';
@@ -23,6 +23,10 @@ function hiddeNewTaskModal(e){
 function hiddeNewlistModal(e){
   e.preventDefault();
   hidde("newList");
+}
+function hiddeTaskDetailsModal(e){
+  e.preventDefault();
+  hidde("taskDetails");
 }
 function hidde(openModal) {
   const modal = document.getElementById("displayModal");

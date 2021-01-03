@@ -1,16 +1,18 @@
-export{customListsArray, updateCustomLists, saveNewList};
+export{customListsArray, updateCustomLists, saveNewList, changeValueVariableCustomListArray};
 
 
 import {updateLocalStorage} from '../local-storage/update-local-storage.js'
+import {hidde} from '../modal/hide-modal'
 
 
-var customListsArray = [];
+let customListsArray = [];
 
 
 function updateCustomLists() {
-  const customLinstsContent = document.getElementById('customLinstsContent');
+  const customListsContent = document.getElementById('customLinstsContent');
+  customListsContent.innerHTML="";
   customListsArray.forEach(e => {
-    customLinstsContent.innerHTML += `<button class="lists-content__button" id=${e}>${e}</button>`
+    customListsContent.innerHTML += `<button class="lists-content__button" id=${e}>${e}</button>`
   });
 }
 
@@ -23,6 +25,10 @@ function saveNewList(e) {
   hidde("newList");
 }
 
+
+function changeValueVariableCustomListArray(value){
+  customListsArray=value;
+}
 
 
 

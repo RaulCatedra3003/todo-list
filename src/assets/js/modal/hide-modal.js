@@ -1,19 +1,18 @@
-export {hiddeModal, hiddeNewTaskModal, hidde};
+export {hiddeModal, hiddeNewTaskModal, hidde, updateCurrentOpenModal, hiddeNewlistModal};
 
 
 import {removeModalEventListeners} from './remove-event-listeners/remove-modal-event-listeners';
 import {addPrincipalEventListeners} from './add-event-listeners/add-principal-event-listeners.js';
 
-
+var currentModalOpen;
 
 function hiddeModal(e) {
-  console.log(e.keyCode);
   if(e.keyCode === 27) {
-    hidde();
+    hidde(currentModalOpen);
   } else if(e.target.id === "closeModalButton") {
-    hidde();
+    hidde(currentModalOpen);
   } else if(e.target.id === "displayModal") {
-    hidde();
+    hidde(currentModalOpen);
   }
 }
 
@@ -21,10 +20,17 @@ function hiddeNewTaskModal(e){
   e.preventDefault();
   hidde("newTask");
 }
-
+function hiddeNewlistModal(e){
+  e.preventDefault();
+  hidde("newList");
+}
 function hidde(openModal) {
   const modal = document.getElementById("displayModal");
   removeModalEventListeners(openModal);
   addPrincipalEventListeners();
   modal.classList.toggle("hidde");
+}
+
+function updateCurrentOpenModal(value){
+  currentModalOpen=value;
 }

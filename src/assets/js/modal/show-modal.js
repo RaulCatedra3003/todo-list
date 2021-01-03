@@ -4,6 +4,7 @@ import {removePrincipalEventListeners} from './remove-event-listeners/remove-pri
 import {addModalEventListeners} from './add-event-listeners/add-modal-event-listeners.js';
 import {addNewTaskModalContent} from './content/new-task-content.js';
 import {addNewListModalContent} from './content/new-list-content.js';
+import {updateCurrentOpenModal} from './hide-modal.js';
 
 function showModal(e) {
   const modal = document.getElementById('displayModal');
@@ -14,12 +15,14 @@ function showModal(e) {
       modal.classList.toggle("hidde");
       addModalEventListeners();
       addNewTaskModalContent();
+      updateCurrentOpenModal(id);
       break;
     case 'newList':
       removePrincipalEventListeners();
       modal.classList.toggle("hidde");
       addModalEventListeners();
       addNewListModalContent();
+      updateCurrentOpenModal(id);
       break;
     default:
       break;

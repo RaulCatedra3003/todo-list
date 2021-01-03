@@ -1,9 +1,22 @@
-export {addNewTaskModalContent}
+export {
+  addNewTaskModalContent
+}
 
 
 
-import {hiddeNewTaskModal} from '../hide-modal.js';
-import {validateTaskDescription, validateTaskTitle} from './validations/new-task-validations.js';
+import {
+  hiddeNewTaskModal
+} from '../hide-modal.js';
+import {
+  validateTaskDescription,
+  validateTaskTitle
+} from './validations/new-task-validations.js';
+import {
+  customListsArray
+} from '../../lists/list.js';
+import {
+  saveNewTask
+} from '../../tasks/tasks.js';
 
 
 
@@ -15,9 +28,9 @@ const newTaskFomr = `
   <label for="taskDescription" class='task-form__label'>Description*:</label>
   <textarea name="taskDescription" id="taskDescription" class="task-form__input-textarea"></textarea>
   <fieldset class="fieldset-checkbox">
-    <input type="checkbox" class="fieldset-checkbox__input">
+    <input type="checkbox" class="fieldset-checkbox__input" id="isCompleted">
     <label for="isCompleted" class='fieldset-checkbox__label'>Completed</label>
-    <input type="checkbox" id="isCompleted" class="fieldset-checkbox__input">
+    <input type="checkbox" id="isImportant" class="fieldset-checkbox__input">
     <label for="isImportant" class='fieldset-checkbox__label'>Important</label>
   </fieldset>
   <label for="selectedList" class='task-form__label'>Custom list:</label>
@@ -47,16 +60,15 @@ function addNewTaskModalContent() {
   modalContent.innerHTML = '';
   modalContent.innerHTML = newTaskFomr;
   const selectedList = document.getElementById('selectedList');
-  //Todo: crear un array con los nombres de las listas que crea el usuario para rellenar el select con dichas opciones
-
-
-
-
-
+  customListsArray.forEach(value => {
+    selectedList.innerHTML += `<option id="${value}">${value}</option>`
+  })
   const taskTitle = document.getElementById('taskTitle');
   const taskDescription = document.getElementById('taskDescription');
   const cancelButton = document.getElementById('cancelButton');
+  const saveButton = document.getElementById('saveButton');
   taskTitle.addEventListener('blur', validateTaskTitle);
   taskDescription.addEventListener('blur', validateTaskDescription);
   cancelButton.addEventListener("click", hiddeNewTaskModal);
+  saveButton.addEventListener('click', saveNewTask);
 }

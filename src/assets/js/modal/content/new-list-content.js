@@ -3,6 +3,7 @@ export {addNewListModalContent};
 
 import {validateListTitle} from './validations/new-list-validations.js';
 import {saveNewList} from '../../lists/list.js'
+import {hiddeNewlistModal} from '../hide-modal.js'
 
 
 const newListFomr = `
@@ -22,6 +23,8 @@ function addNewListModalContent() {
   modalContent.innerHTML = newListFomr;
   const listTitle = document.getElementById('listTitle');
   const saveButton = document.getElementById('saveButton');
+  const cancelButton = document.getElementById('cancelButton');
   listTitle.addEventListener('blur', validateListTitle);
   saveButton.addEventListener('click', saveNewList);
+  cancelButton.addEventListener('click', hiddeNewlistModal);
 }

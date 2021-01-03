@@ -1,7 +1,8 @@
 export {updateVariableFromLocalStorage}
 
 
-import {customListsArray} from '../lists/list.js';
+import {customListsArray, changeValueVariableCustomListArray} from '../lists/list.js';
+import {changeValueVariableTasks, taskArray} from '../tasks/tasks.js';
 
 
 function updateVariableFromLocalStorage() {
@@ -9,12 +10,12 @@ function updateVariableFromLocalStorage() {
       let objectString = JSON.stringify(customListsArray);
       localStorage.setItem('customLists', objectString);
   } else {
-    const manolo = JSON.parse(localStorage.getItem('customLists'));
-    console.log(manolo);
-    console.log(customListsArray);
-    customListsArray = undefined;
-    customListsArray = manolo;
-    console.log(customListsArray);
-    /* customListsArray = manolo; */
+    changeValueVariableCustomListArray(JSON.parse(localStorage.getItem('customLists')));
   }
+  if(localStorage.getItem('task') === null) {
+    let objectString = JSON.stringify(taskArray);
+    localStorage.setItem('task', objectString);
+} else {
+  changeValueVariableTasks(JSON.parse(localStorage.getItem('task')));
+}
 }

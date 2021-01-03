@@ -176,7 +176,7 @@ body{
 
 /* Show and hidde styles */
 
-.seleccted {
+.selected {
   background-color: #db4c3f6c;
   border-radius: 5px;
   border: 2px solid #db4c3f;

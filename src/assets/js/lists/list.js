@@ -1,8 +1,8 @@
 export{customListsArray, updateCustomLists, saveNewList, changeValueVariableCustomListArray};
 
 
-import {updateLocalStorage} from '../local-storage/update-local-storage.js'
-import {hidde} from '../modal/hide-modal'
+import {updateLocalStorage} from '../local-storage/update-local-storage.js';
+import {hidde} from '../modal/hide-modal';
 
 
 let customListsArray = [];
@@ -29,6 +29,7 @@ function saveNewList(e) {
 function changeValueVariableCustomListArray(value){
   customListsArray=value;
 }
+
 
 
 

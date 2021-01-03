@@ -28,16 +28,44 @@ function changeValueVariableTasks(value){
   taskArray=value;
 }
 
-function updateTaskList() {
+function updateTaskList(listName = "Tasks") {
   const displayTask = document.getElementById('displayTask');
-  displayTask.innerHTML = '<h1 id="displayTaskTitle" class="display-task__title">Tasks:</h1>';
-  taskArray.forEach(e => {
-    const html = e.html;
-    displayTask.innerHTML += html;
-  })
+  displayTask.innerHTML = `<h1 id="displayTaskTitle" class="display-task__title">${listName}:</h1>`;
+  switch (listName) {
+    case "Tasks":
+      taskArray.forEach(e => {
+        if(!e.completed) {
+          const html = e.html;
+          displayTask.innerHTML += html;
+        }
+      })
+      break;
+    case 'Important':
+      taskArray.forEach(e => {
+        if(e.important) {
+          const html = e.html;
+          displayTask.innerHTML += html;
+        }
+      })
+      break;
+    case "Completed":
+      taskArray.forEach(e => {
+        if(e.completed) {
+          const html = e.html;
+          displayTask.innerHTML += html;
+        }
+      })
+    default:
+      taskArray.forEach(e => {
+        if(e.list === listName) {
+          const html = e.html;
+          displayTask.innerHTML += html;
+        }
+      })
+  }
 }
 
-class Task{
+class Task {
   constructor(title, description, completed, important, list, color) {
     this.title = title,
     this.description = description,

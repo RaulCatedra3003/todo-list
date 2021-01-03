@@ -7,7 +7,7 @@ import {showResponsiveMenu} from "./responsive-menu/responsive-menu.js"
 import {showModal} from './modal/show-modal.js';
 import {updateCustomLists} from './lists/list.js';
 import {updateVariableFromLocalStorage} from './local-storage/update-variable.js';
-import {updateTaskList} from './tasks/tasks.js';
+import {updateTaskList} from './lists/list';
 import {filterByCustomList} from './lists/filters.js';
 
 

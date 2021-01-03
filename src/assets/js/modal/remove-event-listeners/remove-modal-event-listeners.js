@@ -1,11 +1,11 @@
 export {removeModalEventListeners};
 
 
-import {hiddeModal, hiddeNewTaskModal, hiddeNewlistModal} from '../hide-modal.js';
+import {hiddeModal, hiddeNewTaskModal, hiddeNewlistModal, hiddeTaskDetailsModal} from '../hide-modal.js';
 import {validateTaskDescription, validateTaskTitle} from '../content/validations/new-task-validations.js';
 import {validateListTitle} from '../content/validations/new-list-validations.js';
 import {saveNewList} from '../../lists/list.js';
-import {saveNewTask} from '../../tasks/tasks.js';
+import {deleteTask, saveNewTask, updateTask} from '../../tasks/tasks.js';
 
 
 function removeModalEventListeners(openModal) {

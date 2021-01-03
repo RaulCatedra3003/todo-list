@@ -70,7 +70,7 @@ function openTaskDetailsModal(e) {
   isCompleted.checked = taskObject.completed;
   isImportant.checked = taskObject.important;
   customListsArray.forEach(value => {
-    selectedList.innerHTML += `<option value="${value.title}" class="selectedList__option">${value.title}</option>`
+    selectedList.innerHTML += `<option value="${value.id}" class="selectedList__option">${value.title}</option>`
   })
   document.querySelectorAll(".selectedList__option").forEach(option => {
     if (option.value === taskObject.list) {

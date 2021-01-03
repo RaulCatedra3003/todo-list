@@ -2,19 +2,21 @@ export {
   saveNewTask,
   taskArray,
   changeValueVariableTasks,
-  updateTaskList,
   changeCompletedOrImportantProperty,
   deleteTask,
-  updateTask
+  updateTask,
+  showTask,
+  addTaskEventListeners
 }
 
 
 
+import { updateTaskList } from "../lists/list";
 import {
   updateLocalStorage
 } from "../local-storage/update-local-storage";
 import {
-  hidde
+  hidde, hiddeTaskDetailsModal
 } from "../modal/hide-modal";
 import {
   showModal
@@ -49,62 +51,24 @@ function changeValueVariableTasks(value) {
   taskArray = value;
 }
 
-function updateTaskList(listName = "Task") {
-  const displayTask = document.getElementById('displayTask');
-  displayTask.innerHTML = `<h1 id="displayTaskTitle" class="display-task__title">${listName}:</h1>`;
-  switch (listName) {
-    case "Task":
-      taskArray.forEach(e => {
-        if (!e.completed) {
-          showTask(e);
-        }
-      })
-      addTaskEventListeners();
-      break;
-    case 'Important':
-      taskArray.forEach(e => {
-        if (e.important && !e.completed) {
-          showTask(e);
-        }
-      })
-      addTaskEventListeners();
-      break;
-    case "Completed":
-      taskArray.forEach(e => {
-        if (e.completed) {
-          showTask(e);
-        }
-      })
-      addTaskEventListeners();
-      break;
-    default:
-      taskArray.forEach(e => {
-        if (e.list === listName) {
-          showTask(e);
-        }
-      })
-      addTaskEventListeners();
+function showTask(task) {
+  displayTask.innerHTML +=  `
+  <section class="task-item" id="${task.title}">
+    <input type="checkbox" class="task-item__button task-item__button-completed" id="completeButton--${task.title}" data-id="${task.id}">
+    <p class="task-item__title ${task.color}" id="detailsTask" data-id="${task.id}">${task.title}</p>
+    <button class="task-item__button task-item__button-important bx bxs-flag-alt" id="importantButton--${task.title}" data-id="${task.id}"></button>
+  </section>`;
+  const elementToChangeCheked = document.getElementById(`completeButton--${task.title}`);
+  const elementToChangeImportant = document.getElementById(`importantButton--${task.title}`)
+  if (task.completed === true) {
+    elementToChangeCheked.checked = true;
+  } else {
+    elementToChangeCheked.checked = false;
   }
-
-  function showTask(task) {
-    displayTask.innerHTML +=  `
-    <section class="task-item" id="${task.title}">
-      <input type="checkbox" class="task-item__button task-item__button-completed" id="completeButton--${task.title}" data-id="${task.id}">
-      <p class="task-item__title ${task.color}" id="detailsTask" data-id="${task.id}">${task.title}</p>
-      <button class="task-item__button task-item__button-important bx bxs-flag-alt" id="importantButton--${task.title}" data-id="${task.id}"></button>
-    </section>`;
-    const elementToChangeCheked = document.getElementById(`completeButton--${task.title}`);
-    const elementToChangeImportant = document.getElementById(`importantButton--${task.title}`)
-    if (task.completed === true) {
-      elementToChangeCheked.checked = true;
-    } else {
-      elementToChangeCheked.checked = false;
-    }
-    if (task.important === true) {
-      elementToChangeImportant.classList.add("red-flag");
-    } else {
-      elementToChangeImportant.classList.remove("red-flag");
-    }
+  if (task.important === true) {
+    elementToChangeImportant.classList.add("red-flag");
+  } else {
+    elementToChangeImportant.classList.remove("red-flag");
   }
 }
 
@@ -148,10 +112,11 @@ function changeCompletedOrImportantProperty(e) {
     })
   }
   updateLocalStorage();
-  updateTaskList(document.querySelector(".selected").id);
+  updateTaskList(document.querySelector(".selected"));
 }
 
-function updateTask() {
+function updateTask(e) {
+  e.preventDefault()
   const taskTitle = document.getElementById('taskTitle');
   const taskDescription = document.getElementById('taskDescription');
   const selectedList = document.getElementById('selectedList');
@@ -159,7 +124,6 @@ function updateTask() {
   const isImportant = document.getElementById('isImportant');
   const taskColor = document.getElementById('taskColor');
   const taskId = taskTitle.dataset.id;
-  console.log("aqui")
   taskArray.forEach(task => {
     if (task.id === parseInt(taskId)) {
       task.title = taskTitle.value;
@@ -171,15 +135,18 @@ function updateTask() {
     }
   })
   updateLocalStorage();
-  updateTaskList(document.querySelector(".selected").id);
+  updateTaskList(document.querySelector(".selected"));
+  hiddeTaskDetailsModal(e);
 }
 
-function deleteTask() {
+function deleteTask(e) {
+  e.preventDefault();
   const taskTitle = document.getElementById('taskTitle');
   const taskId = taskTitle.dataset.id;
   taskArray = taskArray.filter(task => parseInt(taskId) !== task.id);
   updateLocalStorage();
-  updateTaskList(document.querySelector(".selected").id);
+  updateTaskList(document.querySelector(".selected"));
+  hiddeTaskDetailsModal(e);
 }
 
 class Task {

@@ -1,7 +1,7 @@
 export {filterByCustomList}
 
 
-import {updateTaskList} from '../tasks/tasks.js';
+import {updateTaskList} from '../lists/list';
 
 
 function filterByCustomList(e) {
@@ -11,5 +11,5 @@ function filterByCustomList(e) {
     f.classList.remove('selected');
   })
   e.target.classList.add('selected');
-  updateTaskList(e.target.id);
+  updateTaskList(e.target);
 }

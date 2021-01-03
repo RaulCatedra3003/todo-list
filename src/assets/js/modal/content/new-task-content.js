@@ -61,7 +61,7 @@ function addNewTaskModalContent() {
   modalContent.innerHTML = newTaskFomr;
   const selectedList = document.getElementById('selectedList');
   customListsArray.forEach(value => {
-    selectedList.innerHTML += `<option value="${value.title}" class="selectedList__option">${value.title}</option>`
+    selectedList.innerHTML += `<option value="${value.id}" class="selectedList__option">${value.title}</option>`
   })
   const taskTitle = document.getElementById('taskTitle');
   const taskDescription = document.getElementById('taskDescription');

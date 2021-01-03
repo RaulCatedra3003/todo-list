@@ -1,0 +1,25 @@
+.purple{
+  background-color: rgba(141, 71, 207, 0.767);
+}
+.green{
+  background-color: rgba(103, 230, 91, 0.767);
+}
+.yellow{
+  background-color: rgba(237, 240, 52, 0.767);
+}
+.orange{
+  background-color: rgba(214, 142, 8, 0.767);
+}
+.grey{
+  background-color: rgba(131, 127, 127, 0.767);
+}
+.pink{
+  background-color: rgba(253, 150, 253, 0.767);
+}
+.blue{
+  background-color: rgba(147, 221, 255, 0.767);
+}
+
+.red-flag{
+  color: red;
+}

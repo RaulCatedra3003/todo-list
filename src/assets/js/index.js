@@ -1,5 +1,6 @@
 import "../css/styles.css";
 import "../css/modals.css";
+import "../css/tasks.css";
 
 
 import {showResponsiveMenu} from "./responsive-menu/responsive-menu.js"

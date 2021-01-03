@@ -51,19 +51,19 @@ class Task{
     if(this.important) {
       const html = `
       <section class="task-item">
-        <input type="checkbox" class="task-item__button task-item__button-completed" checked="${completed}></input>
+        <input type="checkbox" class="task-item__button task-item__button-completed" checked="${completed}">
         <p class="task-item__title ${this.color}">${this.title}</p>
         <button class="task-item__button task-item__button-important bx bxs-flag-alt red-flag"></button>
       </section>`
-      return html
+      return html;
     } else {
       const html = `
       <section class="task-item">
-        <input type="checkbox" class="task-item__button task-item__button-completed" checked="${completed}></input>
+        <input type="checkbox" class="task-item__button task-item__button-completed" checked="${completed}">
         <p class="task-item__title ${this.color}">${this.title}</p>
         <button class="task-item__button task-item__button-important bx bxs-flag-alt"></button>
       </section>`
-      return html
+      return html;
     }
   }
 }

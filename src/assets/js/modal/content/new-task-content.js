@@ -23,22 +23,22 @@ import {
 const newTaskFomr = `
 <h2 class="modal-title">New task</h2>
 <form class='task-form'>
-  <label for="taskTitle" class='task-form__label'>Title*:</label>
-  <input type="text" name="taskTitle" id="taskTitle" class="task-form__input">
-  <label for="taskDescription" class='task-form__label'>Description*:</label>
-  <textarea name="taskDescription" id="taskDescription" class="task-form__input-textarea"></textarea>
-  <fieldset class="fieldset-checkbox">
+  <label for="taskTitle" class='task-form__label task-form__item'>Title*:</label>
+  <input type="text" name="taskTitle" id="taskTitle" class="task-form__input task-form__item">
+  <label for="taskDescription" class='task-form__label task-form__item'>Description*:</label>
+  <textarea name="taskDescription" id="taskDescription" class="task-form__input-textarea task-form__item"></textarea>
+  <fieldset class="fieldset-checkbox task-form__item">
     <input type="checkbox" class="fieldset-checkbox__input" id="isCompleted">
     <label for="isCompleted" class='fieldset-checkbox__label'>Completed</label>
     <input type="checkbox" id="isImportant" class="fieldset-checkbox__input">
     <label for="isImportant" class='fieldset-checkbox__label'>Important</label>
   </fieldset>
-  <label for="selectedList" class='task-form__label'>Custom list:</label>
-  <select name="selectedList" id="selectedList" class="task-form__input">
+  <label for="selectedList" class='task-form__label task-form__item'>Custom list:</label>
+  <select name="selectedList" id="selectedList" class="task-form__input task-form__item">
     <option value="none">Select a custom list</option>
   </select>
-  <label for="taskColor" class='task-form__label'>Task color:</label>
-  <select name="taskColor" id="taskColor" class="task-form__input">
+  <label for="taskColor" class='task-form__label task-form__item'>Task color:</label>
+  <select name="taskColor" id="taskColor" class="task-form__input task-form__item">
     <option value="none" selected>Select a task color</option>
     <option value="purple">Purple</option>
     <option value="green">Green</option>
@@ -48,7 +48,7 @@ const newTaskFomr = `
     <option value="pink">Pink</option>
     <option value="blue">Blue</option>
   </select>
-  <fieldset class="fieldset-buttons">
+  <fieldset class="fieldset-buttons task-form__item">
     <button class="fieldset-buttons__button" id="cancelButton">Cancel</button>
     <button class="fieldset-buttons__button" id="saveButton" disabled>Save</button>
   </fieldset>

@@ -9,9 +9,9 @@ import {hiddeNewlistModal} from '../hide-modal.js'
 const newListFomr = `
 <h2 class="modal-title">New List</h2>
 <form class='list-form'>
-  <label for="listTitle" class='list-form__label'>List name*:</label>
-  <input type="text" name="listTitle" id="listTitle" class="list-form__input">
-  <fieldset class="fieldset-buttons">
+  <label for="listTitle" class='list-form__label list-form__item'>List name*:</label>
+  <input type="text" name="listTitle" id="listTitle" class="list-form__input list-form__item">
+  <fieldset class="fieldset-buttons list-form__item">
     <button class="fieldset-buttons__button" id="cancelButton">Cancel</button>
     <button class="fieldset-buttons__button" id="saveButton" disabled>Save</button>
   </fieldset>

@@ -4,47 +4,34 @@
   padding: 10px;
   text-align: left;
   position: relative;
-  display: block;
   width: 232px;
   height: fit-content;
+  margin: 10px;
 }
-.task-form__label{
-  padding: 5px;
-  position: relative;
-  display: block;
-}
+
 .task-form__input{
-  position: relative;
-  display: block;
-  margin-left: 5px;
   width: 212px;
 }
 .task-form__input-textarea{
-  position: relative;
-  display: block;
-  margin-left: 5px;
   width: 212px;
   height: 80px;
 }
 .fieldset-checkbox{
-  position: relative;
   display: flex;
+  padding: 0;
+  justify-content: space-between;
   border: none;
 }
-.fieldset-checkbox__input{
-  position: relative;
-  margin: 2px 5px;
+.task-form__item{
+  margin: 5px;
 }
-.fieldset-checkbox__label{
-  position: relative;
-  margin-right: 15px;
-}
+
 .fieldset-buttons{
   border: none;
-  position: relative;
-  width: fit-content;
-  margin-left: 100px;
   margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
 }
 .fieldset-buttons__button{
   position: relative;
@@ -58,21 +45,20 @@
 /* New list modal styles */
 
 .list-form{
-  padding: 10px;
+  margin: 10px;
   text-align: left;
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 232px;
   height: fit-content;
 }
-list-form__label{
-  padding: 5px;
-  position: relative;
-  display: block;
+.list-form__item{
+  margin: 5px;
+}
+.list-form__label{
+  width: fit-content;
 }
 .list-form__input{
-  position: relative;
-  display: block;
-  margin-left: 5px;
-  width: 212px;
+  width: 222px;
 }

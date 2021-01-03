@@ -12,7 +12,7 @@ function updateCustomLists() {
   const customListsContent = document.getElementById('customLinstsContent');
   customListsContent.innerHTML="";
   customListsArray.forEach(e => {
-    customListsContent.innerHTML += `<button class="lists-content__button" id=${e}>${e}</button>`
+    customListsContent.innerHTML += `<button class="lists-content__button nav-list__button" id=${e}>${e}</button>`
   });
 }
 

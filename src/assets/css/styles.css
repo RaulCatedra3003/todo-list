@@ -1,4 +1,7 @@
 /* Principal styles */
+*{
+  box-sizing: border-box;
+}
 body{
   margin: 0;
   padding: 0;
@@ -32,7 +35,7 @@ body{
 }
 .nav{
   position: absolute;
-  width: auto;
+  width: 300px;
   height: 100%;
   background-color: #fafafa;
   padding: 5px 20px;
@@ -51,6 +54,7 @@ body{
   height: 25px;
   background-color: #fafafa;
   border: none;
+  text-align: left;
 }
 .nav-list__hr{
   width: 80px;
@@ -60,11 +64,10 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 5px;
 }
 .custom-lists__title{
   margin: 0;
+  text-align: center;
 }
 .custom-lists__button{
   position: relative;
@@ -72,15 +75,6 @@ body{
 }
 .lists-content{
   background-color: #fafafa;
-}
-.lists-content__button{
-  margin: 2px;
-  color: black;
-  padding: 3px;
-  min-width: 44px;
-  height: 25px;
-  background-color: #fafafa;
-  border: none;
 }
 .bx-message-square-add{
   background-color: transparent;
@@ -99,9 +93,45 @@ body{
 }
 .main{
   min-height: 100%;
+  min-width: 60%;
 }
 .bxs-add-to-queue {
   font-size: 20px;
+}
+
+/* Task Display styles*/
+.display-task{
+  padding: 20px 0px 0px 40px;
+  width: 100%;
+  min-width: 300px;
+}
+.display-task__title{
+  width: fit-content;
+  margin: 0;
+}
+
+.task-item{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.task-item__button{
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+}
+.task-item__button-completed{
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.task-item__button-important{
+  border: none;
+  font-size: 20px;
+}
+.task-item__title{
+  text-align: left;
+  width: 70%;
 }
 
 /* Modal styles */
@@ -173,5 +203,11 @@ body{
   .main{
     position: relative;
     float: left;
+  }
+  .custom-lists{
+    flex-direction: row;
+  }
+  .custom-lists__button{
+    width: 44px;
   }
 }

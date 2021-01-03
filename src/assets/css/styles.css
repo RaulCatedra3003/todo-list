@@ -52,6 +52,36 @@ body{
   background-color: #fafafa;
   border: none;
 }
+.nav-list__hr{
+  width: 80px;
+}
+.custom-lists{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+.custom-lists__title{
+  margin: 0;
+}
+.custom-lists__button{
+  position: relative;
+  margin: 5px auto;
+}
+.lists-content{
+  background-color: #fafafa;
+}
+.lists-content__button{
+  margin: 2px;
+  color: black;
+  padding: 3px;
+  min-width: 44px;
+  height: 25px;
+  background-color: #fafafa;
+  border: none;
+}
 .bx-message-square-add{
   background-color: transparent;
   border: none;
@@ -89,11 +119,14 @@ body{
 	align-items: center;
 }
 .display-modal{
-  background-color: #494949;
-	width: fit-content;
+  background-color: #db4c3f;
+  width: fit-content;
+  min-height: fit-content;
   padding-bottom: 10px;
   position: relative;
   padding-top: 40px;
+  display: flex;
+  align-items: center;
 }
 .display-modal__button{
   width: 44px;
@@ -104,6 +137,11 @@ body{
   top: -10px;
   background-color: transparent;
   border: none;
+}
+.modal-title{
+  text-align: center;
+  position: relative;
+  margin: 0;
 }
 
 /* Show and hidde styles */

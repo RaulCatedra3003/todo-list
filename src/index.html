@@ -22,16 +22,21 @@
       <button class="nav-list__button seleccted" id="task">Task</button>
       <button class="nav-list__button" id="important">Important</button>
       <button class="nav-list__button" id="completed">Completed</button>
-      <button class="nav-list__button" id="add"><i class='bx bx-message-square-add' ></i></button>
+      <hr class="nav-list__hr">
+      <section class="custom-lists">
+        <p class="custom-lists__title">Custom lists</p>
+        <button class="custom-lists__button bx bx-message-square-add" id="newList"></button>
+        <section class="lists-content" id="customLinstsContent"></section>
+      </section>
     </section>
   </nav>
 
   <main class="main">
     <section id="display-task"></section>
-    <button id="newTask" class="new--task"><i class='bx bxs-add-to-queue'></i></i></button>
+    <button id="newTask" class="new--task bx bxs-add-to-queue"></button>
     <section class="container-display-modal hidde" id="displayModal">
       <section  class="display-modal">
-        <button class="display-modal__button"><i class="bx bx-x-circle"></i></button>
+        <button class="display-modal__button bx bx-x-circle" id="closeModalButton"></button>
         <section class="display-modal__content" id="modalContent"></section>
       </section>
     </section>

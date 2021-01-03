@@ -9,6 +9,8 @@ import { hidde } from "../modal/hide-modal";
 
 let taskArray = [];
 
+
+
 function saveNewTask(e){
   e.preventDefault();
   const taskTitle = document.getElementById('taskTitle').value;
@@ -64,6 +66,8 @@ function updateTaskList(listName = "Tasks") {
       })
   }
 }
+
+
 
 class Task {
   constructor(title, description, completed, important, list, color) {

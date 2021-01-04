@@ -1,6 +1,10 @@
+export { openListDetailsModal }
 
 
 
+import { customListsArray, deleteList, updateList } from "../../lists/list";
+import { hiddeListDetailsModal } from "../hide-modal";
+import { validateListTitle } from "./validations/new-list-validations";
 
 
 
@@ -13,11 +17,11 @@ const listDetailsFomr = `
   <fieldset class="fieldset-buttons list-form__item">
     <button class="fieldset-buttons__button" id="cancelButton">Cancel</button>
     <button class="fieldset-buttons__button" id="deleteButton">Delete</button>
-    <button class="fieldset-buttons__button" id="saveButton" disabled>Save</button>
+    <button class="fieldset-buttons__button" id="saveButton">Save</button>
   </fieldset>
 </form>`
 
-function openListDetailsModal() {
+function openListDetailsModal(e) {
   const modalContent = document.getElementById("modalContent");
   modalContent.innerHTML = '';
   modalContent.innerHTML = listDetailsFomr;
@@ -25,8 +29,11 @@ function openListDetailsModal() {
   const saveButton = document.getElementById('saveButton');
   const cancelButton = document.getElementById('cancelButton');
   const deleteButton = document.getElementById('deleteButton');
+  const listObject= customListsArray.filter(listItem=>listItem.id===parseInt(e.dataset.id))[0];
+  listTitle.value = listObject.title;
+  listTitle.dataset.id = listObject.id;
   listTitle.addEventListener('blur', validateListTitle);
-  saveButton.addEventListener('click', updateList);//todo hacer en list
-  cancelButton.addEventListener('click', hiddeListDetailsModal);//todo hacer en hide-modal
-  deleteButton.addEventListener('click', deleteList);//todo hacer en list
+  saveButton.addEventListener('click', updateList);
+  cancelButton.addEventListener('click', hiddeListDetailsModal);
+  deleteButton.addEventListener('click', deleteList);
 }

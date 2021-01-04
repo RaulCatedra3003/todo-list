@@ -3,7 +3,9 @@ export {
   updateCustomLists,
   saveNewList,
   changeValueVariableCustomListArray,
-  updateTaskList
+  updateTaskList,
+  deleteList,
+  updateList
 };
 
 
@@ -11,7 +13,7 @@ import {
   updateLocalStorage
 } from '../local-storage/update-local-storage.js';
 import {
-  hidde
+  hidde, hiddeListDetailsModal
 } from '../modal/hide-modal';
 import { showModal } from '../modal/show-modal.js';
 import { addTaskEventListeners, showTask, taskArray } from '../tasks/tasks.js';
@@ -85,6 +87,30 @@ function updateTaskList(target = "1") {
   }
 }
 
+function deleteList(e){
+  e.preventDefault();
+  console.log(e)
+  const listTitle = document.getElementById('listTitle');
+  const listId=listTitle.dataset.id;
+  customListsArray= customListsArray.filter(listItem=>listItem.id!==parseInt(listId));
+  updateLocalStorage();
+  updateCustomLists();
+  hiddeListDetailsModal(e);
+}
+
+function updateList(e){
+  e.preventDefault();
+  const listTitle = document.getElementById('listTitle');
+  const listId=listTitle.dataset.id;
+  customListsArray.forEach(listItem=>{
+    if(listItem.id===parseInt(listId)){
+      listItem.title=listTitle.value;
+    }
+  })
+  updateLocalStorage();
+  updateCustomLists();
+  hiddeListDetailsModal(e);
+}
 
 function changeValueVariableCustomListArray(value) {
   customListsArray = value;

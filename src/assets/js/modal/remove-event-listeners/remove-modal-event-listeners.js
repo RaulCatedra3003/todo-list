@@ -1,10 +1,10 @@
 export {removeModalEventListeners};
 
 
-import {hiddeModal, hiddeNewTaskModal, hiddeNewlistModal, hiddeTaskDetailsModal} from '../hide-modal.js';
+import {hiddeModal, hiddeNewTaskModal, hiddeNewlistModal, hiddeTaskDetailsModal, hiddeListDetailsModal} from '../hide-modal.js';
 import {validateTaskDescription, validateTaskTitle} from '../content/validations/new-task-validations.js';
 import {validateListTitle} from '../content/validations/new-list-validations.js';
-import {saveNewList} from '../../lists/list.js';
+import {deleteList, saveNewList, updateList} from '../../lists/list.js';
 import {deleteTask, saveNewTask, updateTask} from '../../tasks/tasks.js';
 
 
@@ -37,9 +37,9 @@ function removeModalEventListeners(openModal) {
     listTitle.removeEventListener('blur', validateListTitle);
     if(openModal==="listDetails"){
       const deleteButton = document.getElementById('deleteButton');
-      saveButton.removeEventListener('click', updateList);//todo
-      cancelButton.removeEventListener('click', hiddeListDetailsModal);//todo
-      deleteButton.removeEventListener('click', deleteList);//todo
+      saveButton.removeEventListener('click', updateList);
+      cancelButton.removeEventListener('click', hiddeListDetailsModal);
+      deleteButton.removeEventListener('click', deleteList);
     }else if(openModal==="newList"){
       saveButton.removeEventListener('click', saveNewList);
       cancelButton.removeEventListener('click', hiddeNewlistModal);

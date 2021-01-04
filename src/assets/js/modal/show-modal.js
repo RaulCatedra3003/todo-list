@@ -6,11 +6,11 @@ import {addNewTaskModalContent} from './content/new-task-content.js';
 import {addNewListModalContent} from './content/new-list-content.js';
 import {updateCurrentOpenModal} from './hide-modal.js';
 import { openTaskDetailsModal } from './content/open-task-details-modal.js';
+import { openListDetailsModal } from './content/open-list-detail.js';
 
 function showModal(e) {
   const modal = document.getElementById('displayModal');
   const id = e.target.id;
-  console.log(id)
   switch (id) {
     case 'newTask':
       removePrincipalEventListeners();

@@ -39,7 +39,7 @@ function saveNewTask(e) {
   const task = new Task(taskTitle, taskDescription, isCompleted, isImportant, selectedList, taskColor, getIdCont());
   taskArray.push(task);
   updateLocalStorage();
-  updateTaskList();
+  updateTaskList(document.querySelector(".selected"));
   hidde('newTask');
 
   function getIdCont() {

@@ -16,7 +16,7 @@ function validateTaskDescription(e) {
     enabledSaveButton();
   } else {
     validationTitleAndDescription.description = false;
-    e.target.value="";
+    e.target.value = "";
     e.target.placeholder = "Min 10 an max 100 letters";
     enabledSaveButton();
   }
@@ -30,7 +30,7 @@ function validateTaskTitle(e) {
     enabledSaveButton();
   } else {
     validationTitleAndDescription.title = false;
-    e.target.value="";
+    e.target.value = "";
     e.target.placeholder = "Min 3 an max 25 letters";
     enabledSaveButton();
   }

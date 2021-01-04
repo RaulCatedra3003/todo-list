@@ -1,8 +1,14 @@
-export {updateLocalStorage};
+export {
+  updateLocalStorage
+};
 
 
-import {customListsArray} from '../lists/list.js';
-import {taskArray} from '../tasks/tasks.js';
+import {
+  customListsArray
+} from '../lists/list.js';
+import {
+  taskArray
+} from '../tasks/tasks.js';
 
 
 function updateLocalStorage() {

@@ -1,7 +1,11 @@
-export {filterByCustomList}
+export {
+  filterByCustomList
+}
 
 
-import {updateTaskList} from '../lists/list';
+import {
+  updateTaskList
+} from '../lists/list';
 
 
 function filterByCustomList(e) {

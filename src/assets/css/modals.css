@@ -1,6 +1,6 @@
 /* New Task modal styles */
 
-.task-form{
+.task-form {
   padding: 10px;
   text-align: left;
   position: relative;
@@ -9,31 +9,35 @@
   margin: 10px;
 }
 
-.task-form__input{
+.task-form__input {
   width: 212px;
 }
-.task-form__input-textarea{
+
+.task-form__input-textarea {
   width: 212px;
   height: 80px;
 }
-.fieldset-checkbox{
+
+.fieldset-checkbox {
   display: flex;
   padding: 0;
   justify-content: space-between;
   border: none;
 }
-.task-form__item{
+
+.task-form__item {
   margin: 5px;
 }
 
-.fieldset-buttons{
+.fieldset-buttons {
   border: none;
   margin-top: 15px;
   display: flex;
   justify-content: space-evenly;
   padding: 0;
 }
-.fieldset-buttons__button{
+
+.fieldset-buttons__button {
   position: relative;
   border: none;
   border-radius: 5px;
@@ -44,7 +48,7 @@
 
 /* New list modal styles */
 
-.list-form{
+.list-form {
   margin: 10px;
   text-align: left;
   position: relative;
@@ -53,12 +57,15 @@
   width: 232px;
   height: fit-content;
 }
-.list-form__item{
+
+.list-form__item {
   margin: 5px;
 }
-.list-form__label{
+
+.list-form__label {
   width: fit-content;
 }
-.list-form__input{
+
+.list-form__input {
   width: 222px;
 }

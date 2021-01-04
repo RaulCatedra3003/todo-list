@@ -1,37 +1,53 @@
-export {hiddeModal, hiddeNewTaskModal, hidde, updateCurrentOpenModal, hiddeNewlistModal, hiddeTaskDetailsModal, hiddeListDetailsModal};
+export {
+  hiddeModal,
+  hiddeNewTaskModal,
+  hidde,
+  updateCurrentOpenModal,
+  hiddeNewlistModal,
+  hiddeTaskDetailsModal,
+  hiddeListDetailsModal
+};
 
 
-import {removeModalEventListeners} from './remove-event-listeners/remove-modal-event-listeners';
-import {addPrincipalEventListeners} from './add-event-listeners/add-principal-event-listeners.js';
+import {
+  removeModalEventListeners
+} from './remove-event-listeners/remove-modal-event-listeners';
+import {
+  addPrincipalEventListeners
+} from './add-event-listeners/add-principal-event-listeners.js';
 
 var currentModalOpen;
 
 function hiddeModal(e) {
-  if(e.keyCode === 27) {
+  if (e.keyCode === 27) {
     hidde(currentModalOpen);
-  } else if(e.target.id === "closeModalButton") {
+  } else if (e.target.id === "closeModalButton") {
     hidde(currentModalOpen);
-  } else if(e.target.id === "displayModal") {
+  } else if (e.target.id === "displayModal") {
     hidde(currentModalOpen);
   }
 }
 
-function hiddeNewTaskModal(e){
+function hiddeNewTaskModal(e) {
   e.preventDefault();
   hidde("newTask");
 }
-function hiddeNewlistModal(e){
+
+function hiddeNewlistModal(e) {
   e.preventDefault();
   hidde("newList");
 }
-function hiddeTaskDetailsModal(e){
+
+function hiddeTaskDetailsModal(e) {
   e.preventDefault();
   hidde("taskDetails");
 }
-function hiddeListDetailsModal(e){
+
+function hiddeListDetailsModal(e) {
   e.preventDefault();
   hidde("listDetails");
 }
+
 function hidde(openModal) {
   const modal = document.getElementById("displayModal");
   removeModalEventListeners(openModal);
@@ -39,6 +55,6 @@ function hidde(openModal) {
   modal.classList.toggle("hidde");
 }
 
-function updateCurrentOpenModal(value){
-  currentModalOpen=value;
+function updateCurrentOpenModal(value) {
+  currentModalOpen = value;
 }

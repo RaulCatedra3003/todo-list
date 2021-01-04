@@ -11,12 +11,15 @@ export {
 
 
 
-import { updateTaskList } from "../lists/list";
+import {
+  updateTaskList
+} from "../lists/list";
 import {
   updateLocalStorage
 } from "../local-storage/update-local-storage";
 import {
-  hidde, hiddeTaskDetailsModal
+  hidde,
+  hiddeTaskDetailsModal
 } from "../modal/hide-modal";
 import {
   showModal
@@ -52,7 +55,7 @@ function changeValueVariableTasks(value) {
 }
 
 function showTask(task) {
-  displayTask.innerHTML +=  `
+  displayTask.innerHTML += `
   <section class="task-item" id="${task.title}">
     <input type="checkbox" class="task-item__button task-item__button-completed" id="completeButton--${task.title}" data-id="${task.id}">
     <p class="task-item__title ${task.color}" id="detailsTask" data-id="${task.id}">${task.title}</p>

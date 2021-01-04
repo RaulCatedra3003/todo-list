@@ -1,9 +1,17 @@
-export {addNewListModalContent};
+export {
+  addNewListModalContent
+};
 
 
-import {validateListTitle} from './validations/new-list-validations.js';
-import {saveNewList} from '../../lists/list.js'
-import {hiddeNewlistModal} from '../hide-modal.js'
+import {
+  validateListTitle
+} from './validations/new-list-validations.js';
+import {
+  saveNewList
+} from '../../lists/list.js'
+import {
+  hiddeNewlistModal
+} from '../hide-modal.js'
 
 
 const newListFomr = `

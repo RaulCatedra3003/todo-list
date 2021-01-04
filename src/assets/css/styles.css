@@ -1,12 +1,14 @@
 /* Principal styles */
-*{
+* {
   box-sizing: border-box;
 }
-body{
+
+body {
   margin: 0;
   padding: 0;
 }
-.header{
+
+.header {
   display: flex;
   position: relative;
   justify-content: center;
@@ -15,25 +17,30 @@ body{
   background-color: #db4c3f;
   color: white;
 }
-.main-menu{
+
+.main-menu {
   position: absolute;
   top: 2px;
   left: 2px;
 }
-.main-menu__open{
+
+.main-menu__open {
   border: none;
-  background-color:  #db4c3f;
+  background-color: #db4c3f;
 }
-.filter-container{
+
+.filter-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.filter-icon{
+
+.filter-icon {
   position: relative;
   margin-top: 6px;
 }
-.nav{
+
+.nav {
   position: absolute;
   width: 300px;
   height: 100%;
@@ -42,11 +49,13 @@ body{
   left: -100%;
   transition: all .5s;
 }
-.nav-list{
+
+.nav-list {
   display: flex;
   flex-direction: column;
 }
-.nav-list__button{
+
+.nav-list__button {
   margin: 2px;
   color: black;
   padding: 3px;
@@ -56,30 +65,37 @@ body{
   border: none;
   text-align: left;
 }
-.nav-list__hr{
+
+.nav-list__hr {
   width: 80px;
 }
-.custom-lists{
+
+.custom-lists {
   position: relative;
   display: flex;
   align-items: center;
 }
-.custom-lists__title{
+
+.custom-lists__title {
   padding-left: 5px;
   text-align: center;
 }
-.custom-lists__button{
+
+.custom-lists__button {
   position: relative;
   margin: 5px auto;
 }
-.lists-content{
+
+.lists-content {
   background-color: #fafafa;
 }
-.bx-message-square-add{
+
+.bx-message-square-add {
   background-color: transparent;
   border: none;
   width: 40%;
 }
+
 .new--task {
   position: fixed;
   bottom: 20px;
@@ -90,45 +106,52 @@ body{
   background-color: #fafafa;
   border: 2px solid #db4c3f;
 }
-.main{
+
+.main {
   min-height: 100%;
   min-width: 60%;
 }
+
 .bxs-add-to-queue {
   font-size: 20px;
 }
 
 /* Task Display styles*/
-.display-task{
+.display-task {
   padding: 20px 0px 0px 40px;
   width: 100%;
   min-width: 300px;
 }
-.display-task__title{
+
+.display-task__title {
   width: fit-content;
   margin: 0;
 }
 
-.task-item{
+.task-item {
   display: flex;
   width: 100%;
   justify-content: space-around;
   align-items: center;
 }
-.task-item__button{
+
+.task-item__button {
   width: 20px;
   height: 20px;
   background-color: transparent;
 }
-.task-item__button-completed{
+
+.task-item__button-completed {
   border-radius: 50%;
   border: 1px solid black;
 }
-.task-item__button-important{
+
+.task-item__button-important {
   border: none;
   font-size: 20px;
 }
-.task-item__title{
+
+.task-item__title {
   text-align: left;
   width: 70%;
   border-radius: 5px;
@@ -136,19 +159,20 @@ body{
 
 /* Modal styles */
 
-.container-display-modal{
+.container-display-modal {
   background-color: rgba(184, 184, 184, 0.7);
-	width: 100%;
-	position: fixed;
-	z-index: 1000;
-	height: 100%;
-	top: 0;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-.display-modal{
+
+.display-modal {
   background-color: #db4c3f;
   width: fit-content;
   min-height: fit-content;
@@ -158,17 +182,19 @@ body{
   display: flex;
   align-items: center;
 }
-.display-modal__button{
+
+.display-modal__button {
   width: 44px;
   height: 44px;
   position: absolute;
-	right: -12px;
+  right: -12px;
   cursor: pointer;
   top: -10px;
   background-color: transparent;
   border: none;
 }
-.modal-title{
+
+.modal-title {
   text-align: center;
   position: relative;
   margin: 0;
@@ -181,30 +207,35 @@ body{
   border-radius: 5px;
   border: 2px solid #db4c3f;
 }
+
 .show {
   left: 0;
 }
-.hidde{
+
+.hidde {
   display: none;
 }
 
 /* Mediaquery styles */
 
 @media screen and (min-width: 780px) {
-  .nav{
+  .nav {
     left: 0;
     position: relative;
     float: left;
     min-height: 100vh;
   }
-  .main-menu{
+
+  .main-menu {
     display: none;
   }
-  .main{
+
+  .main {
     position: relative;
     float: left;
   }
-  .custom-lists__button{
+
+  .custom-lists__button {
     width: 44px;
   }
 }

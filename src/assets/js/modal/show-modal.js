@@ -1,12 +1,28 @@
-export {showModal};
+export {
+  showModal
+};
 
-import {removePrincipalEventListeners} from './remove-event-listeners/remove-principal-event-listeners.js';
-import {addModalEventListeners} from './add-event-listeners/add-modal-event-listeners.js';
-import {addNewTaskModalContent} from './content/new-task-content.js';
-import {addNewListModalContent} from './content/new-list-content.js';
-import {updateCurrentOpenModal} from './hide-modal.js';
-import { openTaskDetailsModal } from './content/open-task-details-modal.js';
-import { openListDetailsModal } from './content/open-list-detail.js';
+import {
+  removePrincipalEventListeners
+} from './remove-event-listeners/remove-principal-event-listeners.js';
+import {
+  addModalEventListeners
+} from './add-event-listeners/add-modal-event-listeners.js';
+import {
+  addNewTaskModalContent
+} from './content/new-task-content.js';
+import {
+  addNewListModalContent
+} from './content/new-list-content.js';
+import {
+  updateCurrentOpenModal
+} from './hide-modal.js';
+import {
+  openTaskDetailsModal
+} from './content/open-task-details-modal.js';
+import {
+  openListDetailsModal
+} from './content/open-list-detail.js';
 
 function showModal(e) {
   const modal = document.getElementById('displayModal');

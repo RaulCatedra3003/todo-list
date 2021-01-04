@@ -1,7 +1,11 @@
-export {addModalEventListeners};
+export {
+  addModalEventListeners
+};
 
 
-import {hiddeModal} from '../hide-modal.js';
+import {
+  hiddeModal
+} from '../hide-modal.js';
 
 
 function addModalEventListeners() {
@@ -11,5 +15,3 @@ function addModalEventListeners() {
   window.addEventListener("keydown", hiddeModal);
   modal.addEventListener("click", hiddeModal);
 }
-
-

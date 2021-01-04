@@ -1,10 +1,20 @@
-export { openListDetailsModal }
+export {
+  openListDetailsModal
+}
 
 
 
-import { customListsArray, deleteList, updateList } from "../../lists/list";
-import { hiddeListDetailsModal } from "../hide-modal";
-import { validateListTitle } from "./validations/new-list-validations";
+import {
+  customListsArray,
+  deleteList,
+  updateList
+} from "../../lists/list";
+import {
+  hiddeListDetailsModal
+} from "../hide-modal";
+import {
+  validateListTitle
+} from "./validations/new-list-validations";
 
 
 
@@ -29,7 +39,7 @@ function openListDetailsModal(e) {
   const saveButton = document.getElementById('saveButton');
   const cancelButton = document.getElementById('cancelButton');
   const deleteButton = document.getElementById('deleteButton');
-  const listObject= customListsArray.filter(listItem=>listItem.id===parseInt(e.dataset.id))[0];
+  const listObject = customListsArray.filter(listItem => listItem.id === parseInt(e.dataset.id))[0];
   listTitle.value = listObject.title;
   listTitle.dataset.id = listObject.id;
   listTitle.addEventListener('blur', validateListTitle);

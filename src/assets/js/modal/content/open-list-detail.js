@@ -12,6 +12,7 @@ import {
 import {
   hiddeListDetailsModal
 } from "../hide-modal";
+import { stopSubmitWithEnter } from "./new-task-content";
 import {
   validateListTitle
 } from "./validations/new-list-validations";
@@ -43,6 +44,7 @@ function openListDetailsModal(e) {
   listTitle.value = listObject.title;
   listTitle.dataset.id = listObject.id;
   listTitle.addEventListener('blur', validateListTitle);
+  listTitle.addEventListener('keypress', stopSubmitWithEnter);
   saveButton.addEventListener('click', updateList);
   cancelButton.addEventListener('click', hiddeListDetailsModal);
   deleteButton.addEventListener('click', deleteList);

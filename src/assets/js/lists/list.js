@@ -109,7 +109,6 @@ function updateTaskList(target = "1") {
 
 function deleteList(e) {
   e.preventDefault();
-  console.log(e)
   const listTitle = document.getElementById('listTitle');
   const listId = listTitle.dataset.id;
   customListsArray = customListsArray.filter(listItem => listItem.id !== parseInt(listId));

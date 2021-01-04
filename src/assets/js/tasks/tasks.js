@@ -55,19 +55,15 @@ function changeValueVariableTasks(value) {
 }
 
 function showTask(task) {
-  displayTask.innerHTML += `
+  displayTask.insertAdjacentHTML("beforeend",`
   <section class="task-item" id="${task.title}">
     <input type="checkbox" class="task-item__button task-item__button-completed" id="completeButton--${task.title}" data-id="${task.id}">
     <p class="task-item__title ${task.color}" id="detailsTask" data-id="${task.id}">${task.title}</p>
     <button class="task-item__button task-item__button-important bx bxs-flag-alt" id="importantButton--${task.title}" data-id="${task.id}"></button>
-  </section>`;
+  </section>`);
   const elementToChangeCheked = document.getElementById(`completeButton--${task.title}`);
   const elementToChangeImportant = document.getElementById(`importantButton--${task.title}`)
-  if (task.completed === true) {
-    elementToChangeCheked.checked = true;
-  } else {
-    elementToChangeCheked.checked = false;
-  }
+    elementToChangeCheked.checked = task.completed;
   if (task.important === true) {
     elementToChangeImportant.classList.add("red-flag");
   } else {

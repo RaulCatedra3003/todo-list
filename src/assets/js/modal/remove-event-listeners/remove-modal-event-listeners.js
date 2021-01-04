@@ -27,6 +27,7 @@ import {
   saveNewTask,
   updateTask
 } from '../../tasks/tasks.js';
+import { stopSubmitWithEnter } from '../content/new-task-content.js';
 
 
 function removeModalEventListeners(openModal) {
@@ -42,6 +43,7 @@ function removeModalEventListeners(openModal) {
     const saveButton = document.getElementById('saveButton');
     taskTitle.removeEventListener('blur', validateTaskTitle);
     taskDescription.removeEventListener('blur', validateTaskDescription);
+    taskTitle.removeEventListener('keypress', stopSubmitWithEnter);
     if (openModal === "taskDetails") {
       const deleteButton = document.getElementById('deleteButton');
       cancelButton.removeEventListener("click", hiddeTaskDetailsModal);
@@ -55,6 +57,7 @@ function removeModalEventListeners(openModal) {
     const listTitle = document.getElementById('listTitle');
     const saveButton = document.getElementById('saveButton');
     const cancelButton = document.getElementById('cancelButton');
+    listTitle.removeEventListener('keypress', stopSubmitWithEnter);
     listTitle.removeEventListener('blur', validateListTitle);
     if (openModal === "listDetails") {
       const deleteButton = document.getElementById('deleteButton');

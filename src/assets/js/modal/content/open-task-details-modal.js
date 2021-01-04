@@ -14,6 +14,7 @@ import {
 import {
   hiddeTaskDetailsModal
 } from "../hide-modal"
+import { stopSubmitWithEnter } from "./new-task-content";
 import {
   validateTaskDescription,
   validateTaskTitle
@@ -86,6 +87,7 @@ function openTaskDetailsModal(e) {
   const saveButton = document.getElementById('saveButton');
   const deleteButton = document.getElementById('deleteButton');
   taskTitle.addEventListener('blur', validateTaskTitle);
+  taskTitle.addEventListener('keypress', stopSubmitWithEnter);
   taskDescription.addEventListener('blur', validateTaskDescription);
   cancelButton.addEventListener("click", hiddeTaskDetailsModal);
   saveButton.addEventListener('click', updateTask);

@@ -1,5 +1,6 @@
 export {
-  addNewTaskModalContent
+  addNewTaskModalContent,
+  stopSubmitWithEnter
 }
 
 
@@ -50,7 +51,7 @@ const newTaskFomr = `
   </select>
   <fieldset class="fieldset-buttons task-form__item">
     <button class="fieldset-buttons__button" id="cancelButton">Cancel</button>
-    <button class="fieldset-buttons__button" id="saveButton" disabled>Save</button>
+    <button type="button" class="fieldset-buttons__button" id="saveButton" disabled>Save</button>
   </fieldset>
 </form>`
 
@@ -68,7 +69,14 @@ function addNewTaskModalContent() {
   const cancelButton = document.getElementById('cancelButton');
   const saveButton = document.getElementById('saveButton');
   taskTitle.addEventListener('blur', validateTaskTitle);
+  taskTitle.addEventListener('keypress', stopSubmitWithEnter);
   taskDescription.addEventListener('blur', validateTaskDescription);
   cancelButton.addEventListener("click", hiddeNewTaskModal);
   saveButton.addEventListener('click', saveNewTask);
+}
+
+function stopSubmitWithEnter(e) {
+  if (e.keyCode == 13) {
+    e.preventDefault();
+  }
 }

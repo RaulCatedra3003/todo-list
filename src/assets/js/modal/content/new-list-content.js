@@ -12,6 +12,7 @@ import {
 import {
   hiddeNewlistModal
 } from '../hide-modal.js'
+import { stopSubmitWithEnter } from './new-task-content.js';
 
 
 const newListFomr = `
@@ -33,6 +34,7 @@ function addNewListModalContent() {
   const saveButton = document.getElementById('saveButton');
   const cancelButton = document.getElementById('cancelButton');
   listTitle.addEventListener('blur', validateListTitle);
+  listTitle.addEventListener('keypress', stopSubmitWithEnter);
   saveButton.addEventListener('click', saveNewList);
   cancelButton.addEventListener('click', hiddeNewlistModal);
 }
